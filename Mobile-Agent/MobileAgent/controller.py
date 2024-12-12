@@ -11,17 +11,17 @@ def get_size(adb_path):
     return width, height
 
 
-def get_screenshot(adb_path):
+def get_screenshot(adb_path, screenshot_local_path):
     command = adb_path + " shell rm /sdcard/screenshot.png"
     subprocess.run(command, capture_output=True, text=True, shell=True)
     time.sleep(0.5)
     command = adb_path + " shell screencap -p /sdcard/screenshot.png"
     subprocess.run(command, capture_output=True, text=True, shell=True)
     time.sleep(0.5)
-    command = adb_path + " pull /sdcard/screenshot.png ./screenshot"
+    command = adb_path + " pull /sdcard/screenshot.png " + screenshot_local_path
     subprocess.run(command, capture_output=True, text=True, shell=True)
-    image_path = "./screenshot/screenshot.png"
-    save_path = "./screenshot/screenshot.jpg"
+    image_path = screenshot_local_path + "/screenshot.png"
+    save_path = screenshot_local_path + "/screenshot.jpg"
     image = Image.open(image_path)
     original_width, original_height = image.size
     new_width = int(original_width * 0.5)

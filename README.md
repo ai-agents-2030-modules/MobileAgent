@@ -1,3 +1,18 @@
+# 🌿🪑 [SPA-Bench](https://github.com/ai-agents-2030/SPA-Bench) – Major Adaptation for [MobileAgent & MobileAgentV2](https://github.com/X-PLUG/MobileAgent) 🔧
+
+## MobileAgent:
+- Logs of agent-executed trajectories (screenshots, actions, errors, token costs, number of steps).
+- Support for open-source models as replacements for GPT-based models.
+- Use cached local models.
+  
+
+## MobileAgentV2:
+- Logs of agent-executed trajectories (screenshots, actions, errors, token costs, number of steps).
+- Support for open-source models as replacements for GPT-based models.
+- Use cached local models.
+- Use gpt-4o-mini as the default model for icon recognition.
+  
+---
 ![](assets/logo.png?v=1&type=image)
 <div align="center">
 <h3>Mobile-Agent: The Powerful Mobile Device Operation Assistant Family<h3>

@@ -70,7 +70,7 @@ def calculate_iou(box1, box2):
     return iou
 
 
-def crop(image, box, i, text_data=None):
+def crop(image, box, i, temp_folder, text_data=None):
     image = Image.open(image)
 
     if text_data:
@@ -81,7 +81,7 @@ def crop(image, box, i, text_data=None):
         # draw.text((text_data[0]+5, text_data[1]+5), str(i), font=font, fill="red")
 
     cropped_image = image.crop(box)
-    cropped_image.save(f"./temp/{i}.jpg")
+    cropped_image.save("./" + temp_folder + f"/{i}.jpg")
     
 
 def in_box(box, target):
@@ -91,7 +91,7 @@ def in_box(box, target):
         return False
 
     
-def crop_for_clip(image, box, i, position):
+def crop_for_clip(image, box, i, temp_folder, position):
     image = Image.open(image)
     w, h = image.size
     if position == "left":
@@ -115,7 +115,7 @@ def crop_for_clip(image, box, i, position):
     
     if in_box(box, bound):
         cropped_image = image.crop(box)
-        cropped_image.save(f"./temp/{i}.jpg")
+        cropped_image.save("./" + temp_folder + f"/{i}.jpg")
         return True
     else:
         return False
